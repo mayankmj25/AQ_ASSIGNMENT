@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import "./UserProfile.css"
 import { useParams } from 'react-router-dom'
+import RepositoryList from '../RepositoryList/RepositoryList';
 
 const UserProfile = () => {
   const {userName } = useParams();
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
+  const [showRepositories, setShowRepositories] = useState(false)
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -23,6 +25,10 @@ const UserProfile = () => {
     fetchUserData();
   }, [userName])
 
+  const toggleRepositories = () => {
+    setShowRepositories(!showRepositories)
+  }
+
   if(error) {
     return <div>Error : {error} </div>
   }
@@ -37,6 +43,8 @@ const UserProfile = () => {
       <h2>{user.name}</h2>
       <p>{user.bio}</p>
       <p>Repositories : {user.public_repos}</p>
+      <button onClick={toggleRepositories}>{showRepositories? 'Hide Repositories' : 'Show All Repositories'}</button>
+      {showRepositories && <RepositoryList />}
     </div>
   )
 }
