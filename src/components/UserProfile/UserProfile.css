@@ -1,0 +1,19 @@
+.user-profile {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .user-profile img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .user-profile h2 {
+    margin: 10px 0;
+  }
+  
+  .user-profile p {
+    color: #666;
+  }
+  
