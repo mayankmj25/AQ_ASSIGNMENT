@@ -1,3 +1,9 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -10,6 +16,9 @@
 .navbar a {
   color: #fff;
   text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
 }
 
 .navbar form {
@@ -19,9 +28,27 @@
 .navbar input {
   margin-right: 10px;
   padding: 5px;
+  border: 0.5px solid #fff;
+  background-color: transparent;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+}
+
+.navbar input::placeholder {
+  color: #ddd;
 }
 
 .navbar button {
-  padding: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar button:hover {
+  background-color: #0056b3;
 }

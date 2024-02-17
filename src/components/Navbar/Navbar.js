@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Navbar.css"
-import { useLocation, useNavigate } from "react-router-dom";
+import "./Navbar.css";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [userName, setUserName] = useState("");
@@ -10,11 +10,14 @@ const Navbar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/user/${userName}`);
+    setUserName("");
   };
   return (
     <nav>
       <div className="navbar">
-        <a href="/">Github Profile Viewer</a>
+        <Link to="/" className="navbar-brand">
+          GitHub Profile Viewer
+        </Link>
         {location.pathname !== "/" && (
           <form onSubmit={handleSubmit}>
             <input
@@ -23,7 +26,9 @@ const Navbar = () => {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
-            <button type="submit">Search</button>
+            <button type="submit" disabled={!userName}>
+              Search
+            </button>
           </form>
         )}
       </div>
