@@ -44,7 +44,7 @@ const UserProfile = () => {
       <p>{user.bio}</p>
       <p>Repositories : {user.public_repos}</p>
       <button onClick={toggleRepositories}>{showRepositories? 'Hide Repositories' : 'Show All Repositories'}</button>
-      {showRepositories && <RepositoryList />}
+      {showRepositories && <RepositoryList totalRepos={user.public_repos}/>}
     </div>
   )
 }
